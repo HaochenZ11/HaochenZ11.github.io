@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no">
+	<script src = "https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Century+Gothic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<title> Personal Website </title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+	<header>
+		<div class = "background">
+			<img src="background.jpg" alt="", class="background-img">
+			<div class = "heading">
+				<!--<h1> Haochen Zhang </h1>
+				<h5> University of Toronto - Engineering Science </h5>-->
+			</div>
+		<div class="main-nav">
+			<li><a class="a active" href = "#"> HOME </a></li>
+			<li><a class="b" href = "#"> ABOUT </a></li>
+			<li><a class="c" href = "#"> PROJECTS </a></li>
+			<li><a class="d" href = "#"> CONTACT </a></li>
+			<li><a class="e" href = "#"> RESUME </a></li>
+		</div>
+		</div>
+	</header>
+	<div class="content">
+		<div class = "home" >
+			<h1> Haochen Zhang</h1>
+			<h3> University of Toronto</h3>
+			<h3> Engineering Science</h3>
+		</div>
+		<div class= "about">	
+			<p>Hi, I'm Haochen and I'm a first year Engineering Science student at the University of Toronto.
+			I have interests in computer science, robotics, and machine intelligence. <br>
+			</p>
+			<h1> Languages: Python, C, C++, Java </h1>
+			<h2> Technologies: MATLAB, AutoCad </h2>
+			<h3> Libraries: jQuery, React</h3>
+			<img src = "profile.jpg", align = "right", class="profile-img">
+		</div>
+		<div class = "projects">
+			<p> coming soon... </p>
+			<p> UofT Rocketry Team - Airframe </p>
+			<div class="container">
+				<li><i class="fas fa-bomb"></i></li>
+					<div class="overlay">
+						<div class="text"><h1>Minesweeper Game in Java</h1></div>
+					</div>
+			</div>
+			<div class="container">
+				<li><i class="fas fa-chess-knight"></i></li>
+					<div class="overlay">
+						<div class="text"><h1>Knight's Tour Simulation</h1></div>
+					</div>
+			</div>
+			<div class = "container">
+				<li><img src = "sudoku-icon.jpg", class = "sudoku-img"></li>
+					<div class="overlay">
+						<div class="text"><h1>JavaScript Sudoku Solver</h1></div>
+					</div>
+			</div>
+			<div class = "container">
+				<li><i class="fas fa-plus"></i></li>
+					<div class="overlay">
+						<div class="text"><h1>...and more on github</h1></div>
+					</div>
+			</div>
+		</div>
+		<div class= "contact">
+			<li><a href="mailto:hcz.zhang@mail.utoronto.ca"><i class="fas fa-envelope"></i></a></li>
+			<li><a href="https://www.facebook.com/haochen.z11"><i class="fab fa-facebook-square"></i></a></li>
+			<li><a href ="https://github.com/haochenz11"><i class="fab fa-github"></i></a></li>
+			<li><a href="https://www.linkedin.com/in/haochenz11/"><i class="fab fa-linkedin"></i></a></li>
+		</div>
+		<div class = "resume">
+			<li><p> Click to view or download my resume:   </p></li>
+			<li><a href="HaochenZResume.pdf"><i class="fas fa-file-pdf"></i></a></li>
+		</div>
+	</div>
+		
+	<a href="http://jquery.com/">jQuery</a>
+	<script type="text/javascript" src = "jquery-3.3.1.js"></script>
+	<script type = "text/javascript">
+		$(document).ready(function(){
+			$('a').click(function(event){
+				var selected = $(this);
+				$('a').removeClass('active');
+				$(selected).addClass('active');
+			});
+			var $a= $('.a'),
+			$b = $('.b'),
+			$c = $('.c'),
+			$d = $('.d'),
+			$e = $('.e'),
+			$home = $('.home'),
+			$about = $('.about');
+			$projects = $('.projects');
+			$contact = $('.contact');
+			$resume = $('.resume');
+			$a.click(function(){
+				$home.fadeIn();
+				$about.fadeOut();
+				$projects.fadeOut();
+				$contact.fadeOut();
+				$resume.fadeOut();
+			});
+			$b.click(function(){
+				$about.fadeIn();
+				$home.fadeOut();
+				$projects.fadeOut();
+				$contact.fadeOut();
+				$resume.fadeOut();
+			});
+			$c.click(function(){
+				$projects.fadeIn();
+				$home.fadeOut();
+				$about.fadeOut();
+				$contact.fadeOut();
+				$resume.fadeOut();
+			});
+			$d.click(function(){
+				$contact.fadeIn();
+				$home.fadeOut();
+				$about.fadeOut();
+				$projects.fadeOut();
+				$resume.fadeOut();
+			});
+			$e.click(function(){
+				$resume.fadeIn();
+				$home.fadeOut();
+				$about.fadeOut();
+				$projects.fadeOut();
+				$contact.fadeOut();
+			});
+		});
+	</script>
+</body>
+</html>
