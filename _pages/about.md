@@ -20,4 +20,4 @@ social: true # includes social icons at the bottom of the page
 
 Hi! I'm Haochen and I'm a Master's student in robotics at Carnegie Mellon University's Robotics Institute. I conduct research as part of the Field Robotics Center under the supervision of Dr. Ji Zhang and Dr. Wenshan Wang. My main research interests are in 3D vision-language grounding, semantic scene understanding, and navigation systems. 
 
-Previously, I obtained my BASc in Engineering Science - Electrical and Computer Engineering at the University of Toronto, where I completed by undergrad thesis under Dr. Scott Sanner in natural language preference retrieval. 
+Previously, I obtained my BASc in Engineering Science - Electrical and Computer Engineering at the University of Toronto, where I completed my undergrad thesis under Dr. Scott Sanner in natural language preference retrieval. 
