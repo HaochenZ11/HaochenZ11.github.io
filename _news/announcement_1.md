@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2024-06-01 15:59:00-0400
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Our 2024 [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge) is open for registration!
