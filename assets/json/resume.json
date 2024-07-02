@@ -37,7 +37,7 @@
       "url": "https://www.sciencedirect.com/science/article/pii/S2153353923001712"
     }
   ],
-  "research experience": [
+  "work": [
     {
       "name": "AirLab & Field Robotics Center, CMU",
       "position": "Master's Research Student",
@@ -53,20 +53,18 @@
       "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods."
     },
     {
-      "name": "Multimedia Laboratory, UofT",
-      "position": "Research Student",
-      "startDate": "2020-05",
-      "endDate": "2021-05",
-      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey."
-    }
-  ],
-  "work experience": [
-    {
       "name": "ML System Software Engineering Intern",
       "position": "Qualcomm Canada",
       "startDate": "2021-05",
       "endDate": "2022-08",
       "summary": "Software development on embedded AI compiler pipeline. Conducted experiments on fine-tuning embedded AI models."
+    },
+    {
+      "name": "Multimedia Laboratory, UofT",
+      "position": "Research Student",
+      "startDate": "2020-05",
+      "endDate": "2021-05",
+      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey."
     },
     {
       "name": "Data Science and QA Intern",
