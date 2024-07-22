@@ -53,8 +53,8 @@
       "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods."
     },
     {
-      "name": "ML System Software Engineering Intern",
-      "position": "Qualcomm Canada",
+      "name": "Qualcomm Canada",
+      "position": "ML System Software Engineering Intern",
       "startDate": "2021-05",
       "endDate": "2022-08",
       "summary": "Software development on embedded AI compiler pipeline. Conducted experiments on fine-tuning embedded AI models."
@@ -67,14 +67,14 @@
       "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey."
     },
     {
-      "name": "Data Science and QA Intern",
-      "position": "SensorUp Inc.",
+      "name": "SensorUp Inc.",
+      "position": "Data Science and QA Intern",
       "startDate": "2019-05",
       "endDate": "2019-08",
       "summary": "Extracted and analyzed geospatial data and load-tested software frameworks."
     }
   ],
-  "leadership and volunteering": [
+  "volunteer": [
     {
       "organization": "Women@SCS, SCS4All",
       "position": "Committee Member",
