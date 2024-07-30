@@ -25,6 +25,12 @@
   ],
   "publications": [
     {
+      "name": "VLA-3D: A Dataset for 3D Semantic Scene Understanding and Navigation",
+      "publisher": "Presented at the 1st Workshop for Semantic Reasoning and Goal Understanding in Robotics (SemRob), Robotics Science and Systems Conference (RSS)",
+      "releaseDate": "2024-07",
+      "url": "https://semrob.github.io/docs/rss_semrob2024_cr_paper12.pdf"
+    },
+    {
       "name": "Recipe-MPR: A Test Collection for Evaluating Multi-aspect Preference-based Natural Language Retrieval",
       "publisher": "ACM SIGIR Conference on Research and Development in Information Retrieval",
       "releaseDate": "2023-07",
