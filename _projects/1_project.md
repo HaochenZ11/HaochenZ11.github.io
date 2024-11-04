@@ -35,4 +35,4 @@ Check out [this article](https://www.cs.cmu.edu/news/2024/satellite-demo) in CMU
 
 Find our video from demo day:
 
-[![Demo Vid](https://img.youtube.com/vi/MWvvPELV7dI/vid_img.png)](https://www.youtube.com/watch?v=MWvvPELV7dI)
+[![Demo Vid](/assets/img/vid_img.png?raw=true)](https://www.youtube.com/watch?v=MWvvPELV7dI)
