@@ -8,7 +8,7 @@ category: work
 related_publications: false
 ---
 
-I took a course called Spacecraft Design-Build-Fly Lab last semester where the class worked together to design a CubeSat for launch that would be capable of visual-inertial determination of orbit. I was on the ML subteam where I worked on a vision pipeline for localizing where the satellite was above Earth.
+I took a course called Spacecraft Design-Build-Fly Lab last semester where the class worked together to design a CubeSat for launch that would be capable of **visual-inertial determination of orbit** for solving the lost-in-space problem. I was on the ML subteam where I worked on a vision pipeline for localizing where the satellite was above Earth.
 
 Check out [this article](https://www.cs.cmu.edu/news/2024/satellite-demo) in CMU SCS news about us!
 

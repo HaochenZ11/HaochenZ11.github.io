@@ -5,10 +5,9 @@ description: Talking to Robots Course
 img: assets/img/task_spec.png
 importance: 2
 category: work
-giscus_comments: true
 ---
 
-For the Talking to Robots course I'm currently taking, our project is on Uncertainty Reduction for Task Specification with Active Querying. The idea is to have an LLM agent that can ask questions and interact with a human to specify a task when given an instruction, then generate a plan to complete the task. 
+For the Talking to Robots course I'm currently taking, our project is on **Uncertainty Reduction for Task Specification with Active Querying**. The idea is to have an LLM agent that can ask questions and interact with a human to specify a task when given an instruction, then generate a plan to complete the task. 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
