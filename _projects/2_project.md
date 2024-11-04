@@ -2,7 +2,7 @@
 layout: page
 title: Task Specification with LLMs
 description: Talking to Robots Course
-img: assets/img/task_-_spec.png
+img: assets/img/task_spec.png
 importance: 2
 category: work
 giscus_comments: true
