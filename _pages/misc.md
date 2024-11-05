@@ -1,7 +1,7 @@
 ---
 layout: page
 title: misc
-permalink: /
+permalink: /misc/
 ---
 
 more about me!
