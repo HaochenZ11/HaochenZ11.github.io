@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Workshop paper accepted for presentation at the [RSS SemRob 2024 Workshop](https://semrob.github.io/)! Read about our new dataset, VLA-3D [here](https://semrob.github.io/docs/rss_semrob2024_cr_paper12.pdf).
+Workshop paper accepted for presentation at the [RSS SemRob 2024 Workshop](https://semrob.github.io/)! Read about our new dataset, VLA-3D [here](https://arxiv.org/pdf/2411.03540).
