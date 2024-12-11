@@ -29,15 +29,15 @@ Here's a growing collection of some of the cool critters I've encountered in the
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/prairie_chicken.jpg" title="prairie chicken" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/prairie_chicken.jpg" title="Gray partridge" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/lake_bird.JPG" title="" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/lake_bird.JPG" title="Horned grebe" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/muskrat.jpg" title="muskrat" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/muskrat.jpg" title="Gopher" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/flying_bird.JPG" title="" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/flying_bird.JPG" title="American avocet" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
