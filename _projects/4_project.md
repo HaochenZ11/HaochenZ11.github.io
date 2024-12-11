@@ -3,7 +3,7 @@ layout: page
 title: Employee Wellbeing Web Tool
 description: Engineering Science ECE Capstone
 img: assets/img/capstone_overview.png
-importance: 2
+importance: 4
 category: work
 ---
 
