@@ -49,14 +49,21 @@
       "position": "Master's Research Student",
       "startDate": "2023-09",
       "endDate": "present",
-      "summary": "Research in 3D scene understanding and interactive natural-language navigation for autonomous agents. Organizer of CMU VLA Challenge and IROS 2024 Workshop."
+      "summary": "Research in 3D scene understanding and interactive natural-language navigation for autonomous agents. Organizer of CMU VLA Challenge and IROS 2024 Workshop. PIs: Wenshan Wang, Ji Zhang"
+    },
+    {
+      "name": "CMU",
+      "position": "Research Assistant",
+      "startDate": "2024-05",
+      "endDate": "present",
+      "summary": "Research in visual onboard determination of orbit for cube satellite systems. PI: Brandon Lucia"
     },
     {
       "name": "Data-Driven Decision Making Lab, UofT",
       "position": "Thesis Student",
       "startDate": "2022-05",
       "endDate": "2023-04",
-      "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods."
+      "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods. PI: Scott Sanner"
     },
     {
       "name": "Qualcomm Canada",
@@ -70,7 +77,7 @@
       "position": "Research Student",
       "startDate": "2020-05",
       "endDate": "2021-05",
-      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey."
+      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey. PI: Mahdi Hosseini"
     },
     {
       "name": "SensorUp Inc.",
