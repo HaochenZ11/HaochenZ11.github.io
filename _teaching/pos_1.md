@@ -1,6 +1,7 @@
 ---
 layout: post
-date: Spring 2025
+#date: Spring 2025
+term: Spring 2025
 inline: true
 related_posts: false
 ---
