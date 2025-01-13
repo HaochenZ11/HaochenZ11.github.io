@@ -1,4 +1,4 @@
-<div class="news">
+<div class="teaching">
   {% if site.teaching != blank %}
     {% assign news_size = site.news | size %}
     <div
@@ -8,7 +8,7 @@
       {% endif %}
     >
       <table class="table table-sm table-borderless">
-        {% assign news = site.teaching | reverse %}
+        {% assign teaching = site.teaching | reverse %}
         {% if include.limit and site.announcements.limit %}
           {% assign news_limit = site.announcements.limit %}
         {% else %}
@@ -29,6 +29,6 @@
       </table>
     </div>
   {% else %}
-    <p>No news so far...</p>
+    <p>No positions so far...</p>
   {% endif %}
 </div>

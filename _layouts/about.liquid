@@ -51,9 +51,9 @@ layout: default
     <!-- Teaching -->
     {% if page.teaching %}
       <h2>
-        <a href="{{ '/teaching/' | relative_url }}" style="color: inherit">news</a>
+        <a href="{{ '/teaching/' | relative_url }}" style="color: inherit">teaching</a>
       </h2>
-      {% include news.liquid limit=true %}
+      {% include teaching.liquid limit=true %}
     {% endif %}
 
     <!-- Latest posts -->
