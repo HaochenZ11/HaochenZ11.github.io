@@ -11,7 +11,6 @@
       "institution": "Carnegie Mellon University",
       "location": "Pittsburgh, PA",
       "studyType": "MS in Robotics",
-      "summary": "Teaching Assistant for 16-831 Introduction to Robot Learning (Spring 2025)",
       "startDate": "2023-08-21",
       "endDate": "2025-08-21"
     },
@@ -46,6 +45,13 @@
   ],
   "work": [
     {
+      "name": "CMU Robotics Institute",
+      "position": "Graduate Teaching Assistant",
+      "startDate": "2025-01",
+      "endDate": "present",
+      "summary": "Teaching Assistant for graduate-level course 16-831 Introduction to Robot Learning with Professor Guanya Shi"
+    },
+    {
       "name": "AirLab & Field Robotics Center, CMU",
       "position": "Master's Research Student",
       "startDate": "2023-09",
@@ -53,10 +59,10 @@
       "summary": "Research in 3D scene understanding and interactive natural-language navigation for autonomous agents. Organizer of CMU VLA Challenge and IROS 2024 Workshop. PIs: Wenshan Wang, Ji Zhang"
     },
     {
-      "name": "CMU",
-      "position": "Research Assistant",
+      "name": "CMU Space CPS",
+      "position": "Graduate Research Assistant",
       "startDate": "2024-05",
-      "endDate": "present",
+      "endDate": "2024-12",
       "summary": "Research in visual onboard determination of orbit for cube satellite systems. PI: Brandon Lucia"
     },
     {
@@ -67,11 +73,11 @@
       "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods. PI: Scott Sanner"
     },
     {
-      "name": "Qualcomm Canada",
+      "name": "Qualcomm",
       "position": "ML System Software Engineering Intern",
       "startDate": "2021-05",
       "endDate": "2022-08",
-      "summary": "Software development on embedded AI compiler pipeline. Conducted experiments on fine-tuning embedded AI models."
+      "summary": "Software development on embedded AI compiler pipeline and R&D experiments on fine-tuning embedded AI models."
     },
     {
       "name": "Multimedia Laboratory, UofT",
