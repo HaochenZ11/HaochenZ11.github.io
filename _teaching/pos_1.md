@@ -6,4 +6,4 @@ inline: true
 related_posts: false
 ---
 
-Teaching Assistant for [16-831 Introduction to Robot Learning](https://16-831.github.io/spring25/)
+Graduate Teaching Assistant for [16-831 Introduction to Robot Learning](https://16-831.github.io/spring25/)
