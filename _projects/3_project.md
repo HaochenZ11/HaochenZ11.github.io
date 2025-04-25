@@ -3,7 +3,7 @@ layout: page
 title: Reward-Conditioned Diffusion Policy
 description: Introduction to Robot Learning Course
 img: assets/img/maze_result.png
-importance: 3
+importance: 5
 category: work
 ---
 
