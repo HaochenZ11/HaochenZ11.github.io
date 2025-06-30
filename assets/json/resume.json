@@ -1,12 +1,19 @@
 {
   "basics": {
     "name": "Haochen Zhang",
-    "label": "Master's Student in Robotics",
+    "label": "Master's Student in Robotics, Incoming PhD",
     "image": "",
     "email": "haochen4@andrew.cmu.edu",
     "url": "https://haochenz11.github.io"
   },
   "education": [
+    {
+      "institution": "Carnegie Mellon University",
+      "location": "Pittsburgh, PA",
+      "studyType": "PhD in Robotics",
+      "startDate": "2025-08-15",
+      "endDate": "2029-08-15"
+    },
     {
       "institution": "Carnegie Mellon University",
       "location": "Pittsburgh, PA",
@@ -24,6 +31,18 @@
     }
   ],
   "publications": [
+    {
+      "name": "SORT3D: Spatial Object-centric Reasoning Toolbox for Zero-Shot 3D Grounding Using Large Language Models",
+      "publisher": "IEEE/RSJ International Conference on Intelligent Robots and Systems, IROS 2025",
+      "releaseDate": "2025-10",
+      "url": "https://arxiv.org/pdf/2504.18684"
+    },
+    {
+      "name": "IRef-VLA: A Benchmark for Interactive Referential Grounding with Imperfect Language in 3D Scenes",
+      "publisher": "IEEE International Conference on Robotics and Automation, ICRA 2025",
+      "releaseDate": "2025-05",
+      "url": "https://arxiv.org/pdf/2503.17406v1"
+    },
     {
       "name": "VLA-3D: A Dataset for 3D Semantic Scene Understanding and Navigation",
       "publisher": "Presented at the 1st Workshop for Semantic Reasoning and Goal Understanding in Robotics (SemRob), Robotics Science and Systems Conference (RSS)",
@@ -44,6 +63,13 @@
     }
   ],
   "work": [
+    {
+      "name": "Honda Research Institute",
+      "position": "Research Intern",
+      "startDate": "2025-05",
+      "endDate": "2025-08",
+      "summary": "Robotics research intern on the Systems Engineering team"
+    },
     {
       "name": "CMU Robotics Institute",
       "position": "Graduate Teaching Assistant",
