@@ -1,7 +1,7 @@
 ---
 layout: post
 #date: Spring 2025
-term: ["Fall 2025", "Spring 2025"]
+term: ["Fall 2025, ", "Spring 2025"]
 inline: true
 related_posts: false
 ---

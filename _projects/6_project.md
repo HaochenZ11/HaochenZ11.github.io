@@ -18,4 +18,4 @@ For the Learning for 3D Vision course I took in Spring 2025, my project is title
     Pipeline diagram.
 </div>
 
-Our final project report can be found [here](assets/pdf/Learning3D_Project_Report.pdf)!
+Our final project report can be found [here](../assets/pdf/Learning3D_Project_Report.pdf)!
