@@ -1,6 +1,6 @@
 ---
 layout: page
-title: teaching
+title: teaching/mentoring
 permalink: /teaching/
 #nav_order: 4
 ---

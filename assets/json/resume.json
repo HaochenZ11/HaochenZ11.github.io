@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Haochen Zhang",
-    "label": "Master's Student in Robotics, Incoming PhD",
+    "label": "PhD Student in Robotics",
     "image": "",
     "email": "haochen4@andrew.cmu.edu",
     "url": "https://haochenz11.github.io"
@@ -31,6 +31,11 @@
     }
   ],
   "publications": [
+    {
+      "name": "FAST-EQA: Efficient Embodied Question Answering with Global and Local Region Relevancy",
+      "publisher": "IEEE/CVF Winter Conference on Applications of Computer Vision 2026",
+      "releaseDate": "2026-03"
+    },
     {
       "name": "SORT3D: Spatial Object-centric Reasoning Toolbox for Zero-Shot 3D Grounding Using Large Language Models",
       "publisher": "IEEE/RSJ International Conference on Intelligent Robots and Systems, IROS 2025",
@@ -64,6 +69,13 @@
   ],
   "work": [
     {
+      "name": "CMU Robotics Institute",
+      "position": "Research Assistant (PhD)",
+      "startDate": "2025-09",
+      "endDate": "present",
+      "summary": "Research in vision-language-action (VLA) models, semantic understanding, and linguistic generalization through post-training. Advised by Prof. Yonatan Bisk"
+    },
+    {
       "name": "Honda Research Institute",
       "position": "Research Intern",
       "startDate": "2025-05",
@@ -75,28 +87,28 @@
       "position": "Graduate Teaching Assistant",
       "startDate": "2025-01",
       "endDate": "present",
-      "summary": "Teaching Assistant for graduate-level course 16-831 Introduction to Robot Learning with Professor Guanya Shi"
+      "summary": "Teaching Assistant for graduate-level course 16-831 Introduction to Robot Learning with Prof. Guanya Shi"
     },
     {
       "name": "AirLab & Field Robotics Center, CMU",
-      "position": "Master's Research Student",
+      "position": "Research Assistant (Master's)",
       "startDate": "2023-09",
       "endDate": "present",
-      "summary": "Research in 3D scene understanding and interactive natural-language navigation for autonomous agents. Organizer of CMU VLA Challenge and IROS 2024 Workshop. PIs: Wenshan Wang, Ji Zhang"
+      "summary": "Research in 3D scene understanding and interactive natural-language navigation for autonomous agents. Organizer of CMU VLA Challenge and IROS 2024, 2025 Workshop. Advised by Profs. Wenshan Wang, Ji Zhang"
     },
     {
       "name": "CMU Space CPS",
       "position": "Graduate Research Assistant",
       "startDate": "2024-05",
       "endDate": "2024-12",
-      "summary": "Research in visual onboard determination of orbit for cube satellite systems. PI: Brandon Lucia"
+      "summary": "Research in visual onboard determination of orbit for cube satellite systems. Advised by Prof. Brandon Lucia"
     },
     {
       "name": "Data-Driven Decision Making Lab, UofT",
       "position": "Thesis Student",
       "startDate": "2022-05",
       "endDate": "2023-04",
-      "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods. PI: Scott Sanner"
+      "summary": "Curated novel natural-language multi-aspect preference retrieval (MPR) dataset and implemented benchmarking methods. Advised by Prof. Scott Sanner"
     },
     {
       "name": "Qualcomm",
@@ -110,7 +122,7 @@
       "position": "Research Student",
       "startDate": "2020-05",
       "endDate": "2021-05",
-      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey. PI: Mahdi Hosseini"
+      "summary": "Analyzed histological tissue types with deep learning methods and contributed to large-scale computational pathology survey. Advised by Mahdi Hosseini"
     },
     {
       "name": "SensorUp Inc.",
@@ -131,13 +143,13 @@
       "organization": "Graduate Students Association",
       "position": "Campus Affairs Committee Member",
       "startDate": "2023-10",
-      "endDate": "present"
+      "endDate": "2025-05"
     },
     {
       "organization": "CMU Paths to AI Research Mentoring Program",
       "position": "Undergraduate AI Mentor",
       "startDate": "2023-10",
-      "endDate": "present"
+      "endDate": "2025-05"
     },
     {
       "organization": "UofT Machine Intelligence Student Team",
