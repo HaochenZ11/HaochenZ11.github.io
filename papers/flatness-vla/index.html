@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="title" content="Flatness Preserves Instruction Following in Vision-Language-Action Models">
+  <meta name="description" content="Sharpness-aware minimization during VLA finetuning improves instruction following by 60%+ on simulation and real-world benchmarks—no extra data or architecture changes.">
+  <meta name="keywords" content="Vision-Language-Action, VLA, Sharpness-Aware Minimization, SAM, Instruction Following, Robot Learning, Flat Minima">
+  <meta name="author" content="Haochen Zhang, Yonatan Bisk">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Flatness-VLA">
+  <meta property="og:title" content="Flatness Preserves Instruction Following in Vision-Language-Action Models">
+  <meta property="og:description" content="Sharpness-aware minimization during VLA finetuning improves instruction following by 60%+ on simulation and real-world benchmarks—no extra data or architecture changes.">
+  <meta property="og:url" content="https://HaochenZ11.github.io/papers/flatness-vla/">
+  <meta property="og:image" content="https://HaochenZ11.github.io/papers/flatness-vla/static/images/fig1_overview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Flatness Preserves Instruction Following in VLAs">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flatness Preserves Instruction Following in Vision-Language-Action Models">
+  <meta name="twitter:description" content="Sharpness-aware minimization during VLA finetuning improves instruction following by 60%+ on simulation and real-world benchmarks—no extra data or architecture changes.">
+  <meta name="twitter:image" content="https://HaochenZ11.github.io/papers/flatness-vla/static/images/fig1_overview.png">
+
+  <meta name="citation_title" content="Flatness Preserves Instruction Following in Vision-Language-Action Models">
+  <meta name="citation_author" content="Zhang, Haochen">
+  <meta name="citation_author" content="Bisk, Yonatan">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="Conference on Robot Learning (CoRL)">
+  <meta name="citation_pdf_url" content="https://HaochenZ11.github.io/papers/flatness-vla/static/pdfs/paper.pdf">
+
+  <title>Flatness-VLA | Flatness Preserves Instruction Following in VLAs</title>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Flatness Preserves Instruction Following in Vision-Language-Action Models",
+    "description": "Sharpness-aware minimization during VLA finetuning improves instruction following by 60%+ on simulation and real-world benchmarks without additional data or architectural changes.",
+    "author": [
+      {"@type": "Person", "name": "Haochen Zhang", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}},
+      {"@type": "Person", "name": "Yonatan Bisk", "affiliation": {"@type": "Organization", "name": "Carnegie Mellon University"}}
+    ],
+    "datePublished": "2026-01-01",
+    "publisher": {"@type": "Organization", "name": "Conference on Robot Learning (CoRL)"},
+    "url": "https://HaochenZ11.github.io/papers/flatness-vla/",
+    "image": "https://HaochenZ11.github.io/papers/flatness-vla/static/images/fig1_overview.png"
+  }
+  </script>
+</head>
+<body>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Flatness Preserves Instruction Following in<br>Vision-Language-Action Models</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://HaochenZ11.github.io" target="_blank">Haochen Zhang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://talkingtorobots.com/yonatanbisk.html" target="_blank">Yonatan Bisk</a>
+                </span>
+              </div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">Carnegie Mellon University</span>
+                <span class="author-block">CoRL 2026</span>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="static/pdfs/paper.pdf" target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="static/images/fig1_overview.png" alt="Flatness-preserving finetuning improves instruction following in VLAs" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Flatness-preserving finetuning minimizes sharp loss peaks from limited data and improves instruction following on counterfactual tasks.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Vision-language-action (VLA) models have the potential for open-world generalization by leveraging pretrained vision-language representations, yet downstream finetuning on limited robot data often degrades these representations, leading to brittle policies that ignore language instructions in favor of visual shortcuts, a failure mode we term <em>instruction blindness</em>. We hypothesize that standard finetuning with limited data applies gradients to a sparse set of points, which manifests as a sharp loss landscape with high-curvature minima. We propose to address this directly through flatness-preserving optimization while finetuning on the exact same data, where learning a flatter landscape results in a model more robust to perturbations in the weight space. Specifically, we demonstrate that simply applying sharpness-aware minimization (SAM) during VLA finetuning significantly improves instruction following by over 60% across multiple simulation and real-world benchmarks without additional data, architectural modification, or retraining. We further analyze the effect of selective sharpness, quantify its effects, and show that our approach is complementary to existing guidance techniques.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Representation Analysis</h2>
+          <img src="static/images/fig_tsne.png" alt="Object-token representation probe t-SNE" loading="lazy"/>
+          <h2 class="subtitle has-text-centered">
+            Object-token representation probe: standard finetuning disrupts semantic clusters; SAM finetuning preserves pretrained VLM structure.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Video Presentation</h2>
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <div class="publication-video">
+                <iframe src="https://drive.google.com/file/d/1yhxwdhAR_SFm_Q3gb7FrD45knWOX2rv0/preview" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+          <p class="subtitle has-text-centered mb-4">
+            LIBERO counterfactual rollouts: π₀.₅ vs. π₀.₅ + SAM on the same instruction.
+          </p>
+          <div class="results-grid">
+            <div class="grid-item">
+              <h3 class="task-title">Pick the butter and place it in the basket</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/sim/butter_baseline.gif" alt="π₀.₅ on butter task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/sim/butter_sam.gif" alt="π₀.₅ + SAM on butter task" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <h3 class="task-title">Pick the cream cheese and place it in the basket</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/sim/cream_cheese_baseline.gif" alt="π₀.₅ on cream cheese task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/sim/cream_cheese_sam.gif" alt="π₀.₅ + SAM on cream cheese task" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <h3 class="task-title">Pick the orange juice and place it in the basket</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/sim/orange_juice_baseline.gif" alt="π₀.₅ on orange juice task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/sim/orange_juice_sam.gif" alt="π₀.₅ + SAM on orange juice task" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <h3 class="task-title">Pick the salad dressing and place it in the basket</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/sim/salad_dressing_baseline.gif" alt="π₀.₅ on salad dressing task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/sim/salad_dressing_sam.gif" alt="π₀.₅ + SAM on salad dressing task" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Real-World Results</h2>
+          <img src="static/images/fig_realworld.png" alt="Real-world DROID pick-and-place results" loading="lazy"/>
+          <h2 class="subtitle has-text-centered mb-5">
+            DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
+          </h2>
+          <div class="results-grid results-grid--realworld">
+            <div class="grid-item">
+              <h3 class="task-title">Counterfactual pick with towel background</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/realworld/towel_baseline.gif" alt="π₀.₅ real-world towel background task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/realworld/towel_sam.gif" alt="π₀.₅ + SAM real-world towel background task" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <h3 class="task-title">Counterfactual pick-and-place</h3>
+              <div class="columns is-vcentered gif-comparison">
+                <div class="column">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img src="static/gifs/realworld/pick_baseline.gif" alt="π₀.₅ real-world pick task" loading="lazy">
+                </div>
+                <div class="column">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img src="static/gifs/realworld/pick_sam.gif" alt="π₀.₅ + SAM real-world pick task" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title has-text-centered">Paper</h2>
+          <iframe src="static/pdfs/paper.pdf" width="100%" height="550"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <div class="bibtex-header">
+          <h2 class="title">BibTeX</h2>
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="copy-text">Copy</span>
+          </button>
+        </div>
+        <pre id="bibtex-code"><code>@inproceedings{zhang2026flatness,
+  title={Flatness Preserves Instruction Following in Vision-Language-Action Models},
+  author={Zhang, Haochen and Bisk, Yonatan},
+  booktitle={Conference on Robot Learning (CoRL)},
+  year={2026},
+  url={https://HaochenZ11.github.io/papers/flatness-vla/}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Page template from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
