@@ -261,8 +261,35 @@ body {
 }
 
 .results-grid--realworld {
-  max-width: 960px;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.container--wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid-item--realworld {
+  padding: 1.75rem;
+}
+
+.gif-comparison--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gif-comparison--stacked .gif-panel {
+  width: 100%;
+}
+
+.gif-comparison--stacked .method-label {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
 }
 
 .grid-item {
