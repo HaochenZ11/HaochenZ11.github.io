@@ -125,7 +125,7 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Abstract</h2>
-            <div class="content has-text-justified">
+            <div class="content has-text-justified section-prose">
               <p>
                 Vision-language-action (VLA) models have the potential for open-world generalization by leveraging pretrained vision-language representations, yet downstream finetuning on limited robot data often degrades these representations, leading to brittle policies that ignore language instructions in favor of visual shortcuts, a failure mode we term <em>instruction blindness</em>. We hypothesize that standard finetuning with limited data applies gradients to a sparse set of points, which manifests as a sharp loss landscape with high-curvature minima. We propose to address this directly through flatness-preserving optimization while finetuning on the exact same data, where learning a flatter landscape results in a model more robust to perturbations in the weight space. Specifically, we demonstrate that simply applying sharpness-aware minimization (SAM) during VLA finetuning significantly improves instruction following by over 60% across multiple simulation and real-world benchmarks without additional data, architectural modification, or retraining. We further analyze the effect of selective sharpness, quantify its effects, and show that our approach is complementary to existing guidance techniques.
               </p>
@@ -164,7 +164,7 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Method</h2>
-          <div class="content has-text-justified method-prose">
+          <div class="content has-text-justified section-prose">
             <p>
               Inspired by prior work in the ML and NLP fields showing the connection between flatness and generalization, we leverage <b>sharpness-aware minimization (SAM) optimization</b> during VLA finetuning. SAM is a bilevel optimization technique to learn flatter minima explicitly by <b>seeking parameters in neighborhoods with uniformly low loss</b>. At each training step, SAM takes a step towards perturbed parameters with the highest loss within a ρ-neighborhood, calculates the gradient at the perturbed parameters, then uses this gradient to take the gradient descent step at the original parameters.
             </p>
@@ -178,16 +178,18 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Results</h2>
-          <div class="content has-text-justified results-intro">
+          <div class="content has-text-justified section-prose">
             <p>
               Broadly, we are interested in understanding: RQ 1) Do the generalization benefits of SAM transfer to VLA models, specifically by mitigating instruction blindness? RQ 2) Is a flatter manifold indicative of better language following? RQ 3) How should SAM be applied on a large-parameter VLA model? RQ 4) Does SAM work in combination with other instruction-following techniques? 
             </p>
           </div>
 
           <h3 class="title is-4 results-subheading">Simulation Results</h3>
-          <p class="subtitle has-text-centered mb-4">
-            We finetune a pre-trained VLA model using SAM and benchmark language-following ability compared with a variety of baselines finetuned on the exact same (or more) data. We evaluate the method on three counterfactual benchmarks where alternate task instructions are paired with training scenes: LIBERO-PRO Task, LIBERO-CF, and LangGap. In total, the evaluation in simulation consists of 138 new tasks evaluated zero-shot with 50 rollouts each. A number of LIBERO-PRO Task samples are shown below.
-          </p>
+          <div class="content has-text-justified section-prose">
+            <p>
+              We finetune a pre-trained VLA model using SAM and benchmark language-following ability compared with a variety of baselines finetuned on the exact same (or more) data. We evaluate the method on three counterfactual benchmarks where alternate task instructions are paired with training scenes: LIBERO-PRO Task, LIBERO-CF, and LangGap. In total, the evaluation in simulation consists of 138 new tasks evaluated zero-shot with 50 rollouts each. A number of LIBERO-PRO Task samples are shown below.
+            </p>
+          </div>
 
           <div class="results-table-block">
             <p class="table-caption"><strong>Table 1:</strong> Success rate (%) across LIBERO-PRO and LIBERO-LangGap. † indicates the result is as reported in the original paper.</p>
@@ -376,15 +378,17 @@
           </div>
 
           <h3 class="title is-4 results-subheading">Real-World Results</h3>
-          <div class="content has-text-justified results-intro">
+          <div class="content has-text-justified section-prose">
             <p>
               We design a set of real-world evaluations using the DROID setup for five pick-and-place tasks. For each scene, we collect demonstrations for an in-domain task and induce visual bias by only collecting demonstrations for that one task per scene layout. We then finetune a VLA on this biased dataset with and without SAM and evaluate with a counterfactual language instruction for each scene. We further test the robustness of the language following capability by introducing an unseen background perturbation for three tasks.
             </p>
           </div>
           <img class="realworld-figure" src="static/images/fig_realworld.png" alt="Real-world DROID pick-and-place results" loading="lazy"/>
-          <p class="subtitle has-text-centered mb-5">
-            DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
-          </p>
+          <div class="content section-prose section-prose--center">
+            <p>
+              DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
+            </p>
+          </div>
           <div class="realworld-selector" data-tasks="counterfactual">
             <div class="realworld-tabs" role="tablist" aria-label="Real-world object tasks">
               <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="salt">Salt Shaker</button>
@@ -439,10 +443,43 @@
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Representation Analysis</h2>
-          <img src="static/images/fig_tsne.png" alt="Object-token representation probe t-SNE" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Object-token representation probe: standard finetuning disrupts semantic clusters; SAM finetuning preserves pretrained VLM structure.
-          </h2>
+          <div class="content has-text-justified section-prose">
+            <p>
+              We conduct a probe on the vision-language embedding space to verify the effect of SAM on the representations, using the COCO dataset and visualize using a t-SNE plot. As seen from the figure, for the pretrained VLM and even the base VLA model, the object categories form coherent semantic clusters. In contrast, the representations are disrupted after standard finetuning on LIBERO, but are then implicitly remedied by finetuning with SAM.
+            </p>
+          </div>
+          <img class="representation-figure" src="static/images/fig_tsne.png" alt="Object-token representation probe t-SNE" loading="lazy"/>
+          <div class="content has-text-justified section-prose">
+            <p>
+              Subsequently, we quantify the curvature of the landscape with a sharpness metric and the maximum eigenvalue of the Hessian λ<sub>max</sub>. We use a Lanczos approximation to calculate this and verify that the sharpness value and max. eigenvalue of the Hessian are both lower when finetuning with SAM.
+            </p>
+          </div>
+          <div class="results-table-block results-table-block--narrow">
+            <p class="table-caption"><strong>Table 3:</strong> Sharpness and max. eigenvalue of the Hessian</p>
+            <div class="results-table-wrapper">
+              <table class="results-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>S (↓)</th>
+                    <th>λ<sub>max</sub> (↓)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>π₀.₅</td>
+                    <td>0.012</td>
+                    <td>0.93</td>
+                  </tr>
+                  <tr class="table-highlight">
+                    <td>π₀.₅ SAM</td>
+                    <td>0.005</td>
+                    <td>0.52</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>

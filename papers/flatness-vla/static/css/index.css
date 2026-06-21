@@ -283,9 +283,18 @@ body {
   font-weight: 700;
 }
 
-.method-prose {
-  max-width: 52rem;
-  margin: 0 auto;
+.section-prose {
+  max-width: 44rem;
+  margin: 0 auto 1.75rem;
+  padding: 0 2.5rem;
+}
+
+.section-prose--center {
+  text-align: center;
+}
+
+.section-prose--center p {
+  text-align: center;
 }
 
 .method-figure {
@@ -296,14 +305,21 @@ body {
   border-radius: var(--border-radius);
 }
 
-.results-intro {
-  max-width: 52rem;
-  margin: 0 auto 2rem;
-}
-
 .results-table-block {
   max-width: 100%;
   margin: 0 auto 2.5rem;
+}
+
+.results-table-block--narrow {
+  max-width: 28rem;
+}
+
+.representation-figure {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 1.75rem;
+  border-radius: var(--border-radius);
 }
 
 .table-caption {
@@ -641,14 +657,20 @@ body {
 }
 
 /* Content Improvements */
-.content.has-text-justified {
-  font-size: 1.1rem;
-  line-height: 1.8;
+.content.has-text-justified,
+.section-prose.content {
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: var(--text-secondary);
 }
 
-.content.has-text-justified p {
-  margin-bottom: 1.5rem;
+.content.has-text-justified p,
+.section-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.section-prose p:last-child {
+  margin-bottom: 0;
 }
 
 /* Footer Improvements */
@@ -956,8 +978,13 @@ code {
     padding: 1rem;
   }
   
-  .content.has-text-justified {
+  .content.has-text-justified,
+  .section-prose.content {
     font-size: 1rem;
+  }
+
+  .section-prose {
+    padding: 0 1.25rem;
   }
 }
 

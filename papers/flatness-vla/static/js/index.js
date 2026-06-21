@@ -1,5 +1,6 @@
 var REAL_WORLD_GIF_BASE = 'static/gifs/realworld/';
 
+// Edit task titles below: use (In-Domain Bias → Counterfactual Target) in brackets.
 var REAL_WORLD_TASKS = {
     counterfactual: {
         salt: {
@@ -22,7 +23,7 @@ var REAL_WORLD_TASKS = {
         },
         tylenol: {
             label: 'Tylenol',
-            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol counterfactual)',
+            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol)',
             baseline: 'pick_baseline.gif',
             sam: 'pick_sam.gif'
         },
@@ -36,19 +37,19 @@ var REAL_WORLD_TASKS = {
     towel: {
         tylenol: {
             label: 'Tylenol',
-            title: 'Pick the tylenol and place it in the basket (unseen towel background)',
+            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol)',
             baseline: null,
             sam: null
         },
         sunscreen: {
             label: 'Sunscreen',
-            title: 'Pick the sunscreen and place it in the basket (unseen towel background)',
+            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol)',
             baseline: 'towel_baseline.gif',
             sam: 'towel_sam.gif'
         },
         salt: {
             label: 'Salt Shaker',
-            title: 'Pick the salt shaker and place it in the basket (unseen towel background)',
+            title: 'Pick the tylenol and place it in the basket (Salt Shaker → Tylenol)',
             baseline: null,
             sam: null
         }
