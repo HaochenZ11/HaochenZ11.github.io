@@ -35,8 +35,7 @@
 
   <title>Flatness-VLA | Flatness Preserves Instruction Following in VLAs</title>
 
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="icon" href="data:,">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
@@ -115,7 +114,7 @@
         <div class="hero-body">
           <img src="static/images/fig1_overview.png" alt="Flatness-preserving finetuning improves instruction following in VLAs" loading="lazy"/>
           <h2 class="subtitle has-text-centered">
-            Flatness-preserving finetuning minimizes sharp loss peaks from limited data and improves instruction following on counterfactual tasks.
+            Finetuning pretrained VLMs with limited data coverage results in sharp, narrow minima from overfitting on sparse data points, while flatness-preserving optimization learns more stable minima. Robot policies finetuned with limited deployment data exhibit instruction blindness, while flatness-preserving optimization with the same data mitigates this.
           </h2>
         </div>
       </div>
@@ -145,7 +144,7 @@
             </div>
             <div class="takeaway-card takeaway-card--blue">
               <div class="takeaway-tag">Complementary to guidance</div>
-              <div class="takeaway-body">SAM finetuning provides a <b>higher baseline</b> that stacks with existing inference-time guidance techniques.</div>
+              <div class="takeaway-body">SAM finetuning provides a <b>higher baseline</b> that stacks with existing instruction-following techniques such as inference-time guidance.</div>
             </div>
           </div>
         </div>
@@ -177,22 +176,149 @@
 
     <section class="hero is-small">
       <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Results</h2>
+          <div class="content has-text-justified results-intro">
+            <p>
+              Broadly, we are interested in understanding: RQ 1) Do the generalization benefits of SAM transfer to VLA models, specifically by mitigating instruction blindness? RQ 2) Is a flatter manifold indicative of better language following? RQ 3) How should SAM be applied on a large-parameter VLA model? RQ 4) Does SAM work in combination with other instruction-following techniques? 
+            </p>
+          </div>
+
+          <h3 class="title is-4 results-subheading">Simulation Results</h3>
           <p class="subtitle has-text-centered mb-4">
-            LIBERO counterfactual rollouts: π₀.₅ vs. π₀.₅ + SAM on the same instruction.
+            We finetune a pre-trained VLA model using SAM and benchmark language-following ability compared with a variety of baselines finetuned on the exact same (or more) data. We evaluate the method on three counterfactual benchmarks where alternate task instructions are paired with training scenes: LIBERO-PRO Task, LIBERO-CF, and LangGap. In total, the evaluation in simulation consists of 138 new tasks evaluated zero-shot with 50 rollouts each. A number of LIBERO-PRO Task samples are shown below.
           </p>
+
+          <div class="results-table-block">
+            <p class="table-caption"><strong>Table 1:</strong> Success rate (%) across LIBERO-PRO and LIBERO-LangGap. † indicates the result is as reported in the original paper.</p>
+            <div class="results-table-wrapper">
+              <table class="results-table">
+                <thead>
+                  <tr>
+                    <th rowspan="2">Method</th>
+                    <th colspan="5">LIBERO-PRO</th>
+                    <th colspan="4">LIBERO-LangGap</th>
+                  </tr>
+                  <tr>
+                    <th>Goal</th>
+                    <th>Spatial</th>
+                    <th>Object</th>
+                    <th>Long</th>
+                    <th>Avg</th>
+                    <th>Goal</th>
+                    <th>Spatial</th>
+                    <th>Object</th>
+                    <th>Avg</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-group-row"><td colspan="10">Vanilla VLAs</td></tr>
+                  <tr>
+                    <td>OpenVLA-OFT</td>
+                    <td>0.0</td><td>3.8</td><td>1.6</td><td>0.0</td><td>1.4</td>
+                    <td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅</td>
+                    <td>25.0</td><td>52.8</td><td>11.6</td><td>17.0</td><td>26.6</td>
+                    <td>30.0</td><td>5.9</td><td>37.7</td><td>24.5</td>
+                  </tr>
+                  <tr class="table-group-row"><td colspan="10">Factorized Guidance</td></tr>
+                  <tr>
+                    <td>BayesVLA<sup>†</sup></td>
+                    <td>—</td><td>—</td><td>10.0</td><td>—</td><td>10.0</td>
+                    <td>—</td><td>—</td><td>—</td><td>—</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅ cfg</td>
+                    <td>25.4</td><td>49.4</td><td>28.0</td><td>18.0</td><td>30.2</td>
+                    <td>43.8</td><td>8.5</td><td>35.8</td><td>29.4</td>
+                  </tr>
+                  <tr class="table-group-row"><td colspan="10">Data Augmentation</td></tr>
+                  <tr>
+                    <td>π₀.₅ LangGap<sup>†</sup></td>
+                    <td>—</td><td>—</td><td>—</td><td>—</td><td>—</td>
+                    <td>27.2</td><td>10.2</td><td>37.0</td><td>24.8</td>
+                  </tr>
+                  <tr class="table-group-row"><td colspan="10">Representation Regularization</td></tr>
+                  <tr>
+                    <td>π₀.₅ LORA</td>
+                    <td>11.0</td><td>11.0</td><td>5.0</td><td>0.0</td><td>6.75</td>
+                    <td>0.2</td><td>0.2</td><td>0.3</td><td>0.2</td>
+                  </tr>
+                  <tr class="table-highlight">
+                    <td>π₀.₅ SAM (Ours)</td>
+                    <td>43.4</td><td>54.2</td><td>42.4</td><td>30.6</td><td>42.6</td>
+                    <td>56.7</td><td>19.7</td><td>48.7</td><td>41.7</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="results-table-block">
+            <p class="table-caption"><strong>Table 2:</strong> Success rate (%) across LIBERO-CF. † indicates results reported in LIBERO-CF.</p>
+            <div class="results-table-wrapper">
+              <table class="results-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>CF-Spatial</th>
+                    <th>CF-Object</th>
+                    <th>CF-Long</th>
+                    <th>CF-OOD</th>
+                    <th>Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>OpenVLA-OFT<sup>†</sup></td>
+                    <td>1.1</td><td>0.0</td><td>0.2</td><td>0.1</td><td>0.4</td>
+                  </tr>
+                  <tr>
+                    <td>OpenVLA-OFT CAG<sup>†</sup></td>
+                    <td>7.9</td><td>0.0</td><td>0.4</td><td>0.1</td><td>11.3</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅<sup>†</sup></td>
+                    <td>24.4</td><td>5.8</td><td>15.8</td><td>6.9</td><td>13.2</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅ cfg</td>
+                    <td>26.8</td><td>19.6</td><td>52.6</td><td>46.0</td><td>36.3</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅ CAG<sup>†</sup></td>
+                    <td>31.6</td><td>18.0</td><td>26.7</td><td>10.3</td><td>21.7</td>
+                  </tr>
+                  <tr>
+                    <td>π₀.₅ LORA</td>
+                    <td>10.3</td><td>0.0</td><td>12.4</td><td>0.0</td><td>5.7</td>
+                  </tr>
+                  <tr class="table-highlight">
+                    <td>π₀.₅ SAM (Ours)</td>
+                    <td>55.3</td><td>26.2</td><td>55.4</td><td>54.1</td><td>47.8</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <div class="results-grid">
             <div class="grid-item">
               <h3 class="task-title">Pick the butter and place it in the basket</h3>
               <div class="columns is-vcentered gif-comparison">
                 <div class="column">
                   <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/sim/butter_baseline.gif" alt="π₀.₅ on butter task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--incorrect">
+                    <img src="static/gifs/sim/butter_baseline.gif" alt="π₀.₅ on butter task" loading="lazy">
+                  </div>
                 </div>
                 <div class="column">
                   <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/sim/butter_sam.gif" alt="π₀.₅ + SAM on butter task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--correct">
+                    <img src="static/gifs/sim/butter_sam.gif" alt="π₀.₅ + SAM on butter task" loading="lazy">
+                  </div>
                 </div>
               </div>
             </div>
@@ -201,11 +327,15 @@
               <div class="columns is-vcentered gif-comparison">
                 <div class="column">
                   <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/sim/cream_cheese_baseline.gif" alt="π₀.₅ on cream cheese task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--correct">
+                    <img src="static/gifs/sim/cream_cheese_baseline.gif" alt="π₀.₅ on cream cheese task" loading="lazy">
+                  </div>
                 </div>
                 <div class="column">
                   <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/sim/cream_cheese_sam.gif" alt="π₀.₅ + SAM on cream cheese task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--correct">
+                    <img src="static/gifs/sim/cream_cheese_sam.gif" alt="π₀.₅ + SAM on cream cheese task" loading="lazy">
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,11 +344,15 @@
               <div class="columns is-vcentered gif-comparison">
                 <div class="column">
                   <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/sim/orange_juice_baseline.gif" alt="π₀.₅ on orange juice task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--incorrect">
+                    <img src="static/gifs/sim/orange_juice_baseline.gif" alt="π₀.₅ on orange juice task" loading="lazy">
+                  </div>
                 </div>
                 <div class="column">
                   <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/sim/orange_juice_sam.gif" alt="π₀.₅ + SAM on orange juice task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--correct">
+                    <img src="static/gifs/sim/orange_juice_sam.gif" alt="π₀.₅ + SAM on orange juice task" loading="lazy">
+                  </div>
                 </div>
               </div>
             </div>
@@ -227,13 +361,74 @@
               <div class="columns is-vcentered gif-comparison">
                 <div class="column">
                   <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/sim/salad_dressing_baseline.gif" alt="π₀.₅ on salad dressing task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--incorrect">
+                    <img src="static/gifs/sim/salad_dressing_baseline.gif" alt="π₀.₅ on salad dressing task" loading="lazy">
+                  </div>
                 </div>
                 <div class="column">
                   <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/sim/salad_dressing_sam.gif" alt="π₀.₅ + SAM on salad dressing task" loading="lazy">
+                  <div class="gif-wrap gif-wrap--correct">
+                    <img src="static/gifs/sim/salad_dressing_sam.gif" alt="π₀.₅ + SAM on salad dressing task" loading="lazy">
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <h3 class="title is-4 results-subheading">Real-World Results</h3>
+          <div class="content has-text-justified results-intro">
+            <p>
+              We design a set of real-world evaluations using the DROID setup for five pick-and-place tasks. For each scene, we collect demonstrations for an in-domain task and induce visual bias by only collecting demonstrations for that one task per scene layout. We then finetune a VLA on this biased dataset with and without SAM and evaluate with a counterfactual language instruction for each scene. We further test the robustness of the language following capability by introducing an unseen background perturbation for three tasks.
+            </p>
+          </div>
+          <img class="realworld-figure" src="static/images/fig_realworld.png" alt="Real-world DROID pick-and-place results" loading="lazy"/>
+          <p class="subtitle has-text-centered mb-5">
+            DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
+          </p>
+          <div class="realworld-selector" data-tasks="counterfactual">
+            <div class="realworld-tabs" role="tablist" aria-label="Real-world object tasks">
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="salt">Salt Shaker</button>
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="seasoning">Seasoning</button>
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="sunscreen">Sunscreen</button>
+              <button type="button" class="realworld-tab is-active" role="tab" aria-selected="true" data-task="tylenol">Tylenol</button>
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="hand_cream">Hand Cream</button>
+            </div>
+            <div class="realworld-panel grid-item grid-item--realworld">
+              <h3 class="task-title" data-role="title"></h3>
+              <div class="gif-comparison gif-comparison--stacked" data-role="gifs">
+                <div class="gif-panel" data-role="baseline-panel">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img data-role="baseline" src="" alt="" loading="lazy">
+                </div>
+                <div class="gif-panel" data-role="sam-panel">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img data-role="sam" src="" alt="" loading="lazy">
+                </div>
+              </div>
+              <p class="realworld-empty is-hidden" data-role="empty">Rollout video coming soon.</p>
+            </div>
+          </div>
+
+          <div class="realworld-selector realworld-selector--spaced" data-tasks="towel">
+            <h4 class="realworld-section-label">Unseen background perturbation</h4>
+            <div class="realworld-tabs" role="tablist" aria-label="Background perturbation object tasks">
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="tylenol">Tylenol</button>
+              <button type="button" class="realworld-tab is-active" role="tab" aria-selected="true" data-task="sunscreen">Sunscreen</button>
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="salt">Salt Shaker</button>
+            </div>
+            <div class="realworld-panel grid-item grid-item--realworld">
+              <h3 class="task-title" data-role="title"></h3>
+              <div class="gif-comparison gif-comparison--stacked" data-role="gifs">
+                <div class="gif-panel" data-role="baseline-panel">
+                  <p class="method-label baseline">π₀.₅</p>
+                  <img data-role="baseline" src="" alt="" loading="lazy">
+                </div>
+                <div class="gif-panel" data-role="sam-panel">
+                  <p class="method-label sam">π₀.₅ + SAM</p>
+                  <img data-role="sam" src="" alt="" loading="lazy">
+                </div>
+              </div>
+              <p class="realworld-empty is-hidden" data-role="empty">Rollout video coming soon.</p>
             </div>
           </div>
         </div>
@@ -241,46 +436,6 @@
     </section>
 
     <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container container--wide">
-          <h2 class="title is-3 has-text-centered">Real-World Results</h2>
-          <img src="static/images/fig_realworld.png" alt="Real-world DROID pick-and-place results" loading="lazy"/>
-          <h2 class="subtitle has-text-centered mb-5">
-            DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
-          </h2>
-          <div class="results-grid results-grid--realworld">
-            <div class="grid-item grid-item--realworld">
-              <h3 class="task-title">Counterfactual pick with towel background</h3>
-              <div class="gif-comparison gif-comparison--stacked">
-                <div class="gif-panel">
-                  <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/realworld/towel_baseline.gif" alt="π₀.₅ real-world towel background task" loading="lazy">
-                </div>
-                <div class="gif-panel">
-                  <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/realworld/towel_sam.gif" alt="π₀.₅ + SAM real-world towel background task" loading="lazy">
-                </div>
-              </div>
-            </div>
-            <div class="grid-item grid-item--realworld">
-              <h3 class="task-title">Counterfactual pick-and-place</h3>
-              <div class="gif-comparison gif-comparison--stacked">
-                <div class="gif-panel">
-                  <p class="method-label baseline">π₀.₅</p>
-                  <img src="static/gifs/realworld/pick_baseline.gif" alt="π₀.₅ real-world pick task" loading="lazy">
-                </div>
-                <div class="gif-panel">
-                  <p class="method-label sam">π₀.₅ + SAM</p>
-                  <img src="static/gifs/realworld/pick_sam.gif" alt="π₀.₅ + SAM real-world pick task" loading="lazy">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hero is-small">
       <div class="hero-body">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Representation Analysis</h2>
