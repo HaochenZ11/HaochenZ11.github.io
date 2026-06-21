@@ -72,7 +72,7 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">Flatness Preserves Instruction Following in<br>Vision-Language-Action Models</h1>
+              <h1 class="title is-2 publication-title">Flatness Preserves Instruction Following in<br>Vision-Language-Action Models</h1>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
                   <a href="https://HaochenZ11.github.io" target="_blank">Haochen Zhang</a>,
@@ -82,7 +82,7 @@
                 </span>
               </div>
               <div class="is-size-5 publication-authors">
-                <span class="author-block">Robotics Institute</span>
+                <span class="author-block">Robotics Institute,</span>
                 <span class="author-block">Carnegie Mellon University</span>
               </div>
               <div class="column has-text-centered">
@@ -98,6 +98,14 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero is-small">
+      <div class="container is-max-desktop">
+        <div class="tldr-box">
+          <strong>TLDR:</strong> Finetuning VLA models on small-scale datasets often causes loss of pretrained representations and instruction blindness to new instructions. We find that enforcing flatness during finetuning significantly improves instruction following capabilities.
         </div>
       </div>
     </section>
@@ -125,13 +133,24 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3 has-text-centered">Video Presentation</h2>
+        <div class="container is-max-desktop">
+          <div class="takeaway-grid">
+            <div class="takeaway-card takeaway-card--purple">
+              <div class="takeaway-tag">Same data, better following</div>
+              <div class="takeaway-body">Applying SAM improves instruction following while finetuning on the exact same small-scale dataset.</div>
+            </div>
+            <div class="takeaway-card takeaway-card--green">
+              <div class="takeaway-tag">Improved object grounding</div>
+              <div class="takeaway-body">The largest performance improvements can be seen on object grounding tasks where the correct object has to be picked amongst distractors.</div>
+            </div>
+            <div class="takeaway-card takeaway-card--blue">
+              <div class="takeaway-tag">Complementary to guidance</div>
+              <div class="takeaway-body">SAM finetuning provides a <b>higher baseline</b> that stacks with existing inference-time guidance techniques.</div>
+            </div>
+          </div>
+        </div>
+        <div class="container is-max-desktop mt-5">
+          <h2 class="title is-3 has-text-centered">Video</h2>
           <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
               <div class="publication-video">
@@ -139,6 +158,19 @@
               </div>
             </div>
           </div>
+        </div>
+    </section>
+
+    <section class="hero is-small is-light">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Method</h2>
+          <div class="content has-text-justified method-prose">
+            <p>
+              Inspired by prior work in the ML and NLP fields showing the connection between flatness and generalization, we leverage <b>sharpness-aware minimization (SAM) optimization</b> during VLA finetuning. SAM is a bilevel optimization technique to learn flatter minima explicitly by <b>seeking parameters in neighborhoods with uniformly low loss</b>. At each training step, SAM takes a step towards perturbed parameters with the highest loss within a ρ-neighborhood, calculates the gradient at the perturbed parameters, then uses this gradient to take the gradient descent step at the original parameters.
+            </p>
+          </div>
+          <img class="method-figure" src="static/images/method_sam.png" alt="SAM finetuning algorithm and loss landscape illustration" loading="lazy">
         </div>
       </div>
     </section>
