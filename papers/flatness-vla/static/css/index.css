@@ -260,6 +260,104 @@ body {
   padding: 0.5rem 0;
 }
 
+.takeaway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tldr-box {
+  background: #e8f7f2;
+  background: color-mix(in srgb, #5DCAA5 18%, white);
+  border-left: 4px solid #5DCAA5;
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+.tldr-box strong {
+  color: #2d8a6e;
+  font-weight: 700;
+}
+
+.method-prose {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.method-figure {
+  display: block;
+  width: 72%;
+  max-width: 720px;
+  margin: 1.75rem auto 0;
+  border-radius: var(--border-radius);
+}
+
+@media screen and (max-width: 768px) {
+  .method-figure {
+    width: 100%;
+  }
+}
+
+.takeaway-card {
+  border-radius: var(--border-radius-lg);
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid;
+}
+
+.takeaway-card--purple {
+  background: #f5f3ff;
+  border-left-color: #7c3aed;
+}
+
+.takeaway-card--purple .takeaway-tag {
+  color: #7c3aed;
+}
+
+.takeaway-card--green {
+  background: #f0fdf4;
+  border-left-color: #16a34a;
+}
+
+.takeaway-card--green .takeaway-tag {
+  color: #16a34a;
+}
+
+.takeaway-card--blue {
+  background: #eff6ff;
+  border-left-color: #2563eb;
+}
+
+.takeaway-card--blue .takeaway-tag {
+  color: #2563eb;
+}
+
+.takeaway-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.takeaway-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.takeaway-body b {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.mt-5 {
+  margin-top: 2.5rem;
+}
+
 .results-grid--realworld {
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -305,7 +403,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .results-grid {
+  .results-grid,
+  .takeaway-grid {
     grid-template-columns: 1fr;
   }
 }
