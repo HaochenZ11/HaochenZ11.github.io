@@ -1,4 +1,5 @@
 var REAL_WORLD_GIF_BASE = 'static/gifs/realworld/';
+var REAL_WORLD_MEDIA_VERSION = '2';
 
 // Filename pattern: {bias}_{target}_* — button matches target (second object); caption is (Bias → Target).
 var REAL_WORLD_TASKS = {
@@ -121,6 +122,8 @@ function selectRealWorldTask(root, tasks, taskKey) {
 function setRolloutMedia(element, src, alt) {
     if (!element) return;
 
+    var versionedSrc = src + '?v=' + REAL_WORLD_MEDIA_VERSION;
+
     if (src.endsWith('.mp4')) {
         if (element.tagName !== 'VIDEO') {
             var video = document.createElement('video');
@@ -134,7 +137,7 @@ function setRolloutMedia(element, src, alt) {
             element.replaceWith(video);
             element = video;
         }
-        element.src = src;
+        element.src = versionedSrc;
         element.removeAttribute('alt');
     } else {
         if (element.tagName !== 'IMG') {
@@ -144,7 +147,7 @@ function setRolloutMedia(element, src, alt) {
             element.replaceWith(img);
             element = img;
         }
-        element.src = src;
+        element.src = versionedSrc;
         element.alt = alt;
     }
 }
