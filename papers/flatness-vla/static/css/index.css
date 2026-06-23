@@ -323,7 +323,7 @@ body {
 .representation-figure {
   display: block;
   width: 100%;
-  max-width: 720px;
+  max-width: 864px;
   margin: 0 auto 1.75rem;
   border-radius: var(--border-radius);
 }
@@ -468,7 +468,8 @@ body {
 }
 
 .realworld-selector {
-  max-width: 1100px;
+  width: 70%;
+  max-width: 770px;
   margin: 0 auto;
 }
 
@@ -621,7 +622,8 @@ body {
   content: '✅';
 }
 
-.gif-comparison img {
+.gif-comparison img,
+.gif-comparison video {
   width: 100%;
   height: auto;
   border-radius: var(--border-radius);
@@ -656,8 +658,8 @@ body {
 
 .realworld-figure {
   display: block;
-  width: 85%;
-  max-width: 720px;
+  width: min(100%, calc(85% * 1.2));
+  max-width: 864px;
   margin: 0 auto 1.5rem;
   border-radius: var(--border-radius);
 }
@@ -991,6 +993,11 @@ code {
 
   .section-prose--narrow {
     padding: 0 1.25rem;
+  }
+
+  .realworld-selector {
+    width: 100%;
+    max-width: none;
   }
 }
 

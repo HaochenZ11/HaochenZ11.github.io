@@ -1,25 +1,25 @@
 var REAL_WORLD_GIF_BASE = 'static/gifs/realworld/';
 
-// Edit task titles below: use (In-Domain Bias → Counterfactual Target) in brackets.
+// Filename pattern: {bias}_{target}_* — button matches target (second object); caption is (Bias → Target).
 var REAL_WORLD_TASKS = {
     counterfactual: {
         salt: {
             label: 'Salt Shaker',
-            title: 'Pick the salt shaker and place it in the basket',
-            baseline: null,
-            sam: null
+            title: 'Pick the salt shaker and place it in the basket (Hand Cream → Salt Shaker)',
+            baseline: 'handcream_salt_baseline.gif',
+            sam: 'handcream_salt_sam.gif'
         },
         seasoning: {
             label: 'Seasoning',
-            title: 'Pick the seasoning bottle and place it in the basket',
-            baseline: null,
-            sam: null
+            title: 'Pick the Italian seasoning and place it in the basket (Tylenol → Seasoning)',
+            baseline: 'tylenol_seasoning_baseline.gif',
+            sam: 'tylenol_seasoning_sam.gif'
         },
         sunscreen: {
             label: 'Sunscreen',
-            title: 'Pick the sunscreen and place it in the basket',
-            baseline: null,
-            sam: null
+            title: 'Pick the sunscreen and place it in the basket (Seasoning → Sunscreen)',
+            baseline: 'seasoning_sunscreen_baseline.gif',
+            sam: 'seasoning_sunscreen_sam.gif'
         },
         tylenol: {
             label: 'Tylenol',
@@ -29,9 +29,9 @@ var REAL_WORLD_TASKS = {
         },
         hand_cream: {
             label: 'Hand Cream',
-            title: 'Pick the hand cream and place it in the basket',
-            baseline: null,
-            sam: null
+            title: 'Pick the hand cream and place it in the basket (Salt Shaker → Hand Cream)',
+            baseline: 'salt_handcream_baseline.gif',
+            sam: 'salt_handcream_sam.gif'
         }
     },
     towel: {
@@ -84,8 +84,8 @@ function selectRealWorldTask(root, tasks, taskKey) {
     });
 
     var titleEl = root.querySelector('[data-role="title"]');
-    var baselineImg = root.querySelector('[data-role="baseline"]');
-    var samImg = root.querySelector('[data-role="sam"]');
+    var baselineMedia = root.querySelector('[data-role="baseline"]');
+    var samMedia = root.querySelector('[data-role="sam"]');
     var gifsEl = root.querySelector('[data-role="gifs"]');
     var emptyEl = root.querySelector('[data-role="empty"]');
     var baselinePanel = root.querySelector('[data-role="baseline-panel"]');
@@ -106,17 +106,54 @@ function selectRealWorldTask(root, tasks, taskKey) {
     samPanel.classList.toggle('is-hidden', !hasSam);
 
     if (hasBaseline) {
-        baselineImg.src = REAL_WORLD_GIF_BASE + task.baseline;
-        baselineImg.alt = 'π₀.₅ on ' + task.label.toLowerCase() + ' task';
+        setRolloutMedia(baselineMedia, REAL_WORLD_GIF_BASE + task.baseline, 'π₀.₅ on ' + task.label.toLowerCase() + ' task');
     } else {
-        baselineImg.removeAttribute('src');
+        clearRolloutMedia(baselineMedia);
     }
 
     if (hasSam) {
-        samImg.src = REAL_WORLD_GIF_BASE + task.sam;
-        samImg.alt = 'π₀.₅ + SAM on ' + task.label.toLowerCase() + ' task';
+        setRolloutMedia(samMedia, REAL_WORLD_GIF_BASE + task.sam, 'π₀.₅ + SAM on ' + task.label.toLowerCase() + ' task');
     } else {
-        samImg.removeAttribute('src');
+        clearRolloutMedia(samMedia);
+    }
+}
+
+function setRolloutMedia(element, src, alt) {
+    if (!element) return;
+
+    if (src.endsWith('.mp4')) {
+        if (element.tagName !== 'VIDEO') {
+            var video = document.createElement('video');
+            video.setAttribute('data-role', element.getAttribute('data-role'));
+            video.loading = 'lazy';
+            video.muted = true;
+            video.loop = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.controls = true;
+            element.replaceWith(video);
+            element = video;
+        }
+        element.src = src;
+        element.removeAttribute('alt');
+    } else {
+        if (element.tagName !== 'IMG') {
+            var img = document.createElement('img');
+            img.setAttribute('data-role', element.getAttribute('data-role'));
+            img.loading = 'lazy';
+            element.replaceWith(img);
+            element = img;
+        }
+        element.src = src;
+        element.alt = alt;
+    }
+}
+
+function clearRolloutMedia(element) {
+    if (!element) return;
+    element.removeAttribute('src');
+    if (element.tagName === 'IMG') {
+        element.removeAttribute('alt');
     }
 }
 
