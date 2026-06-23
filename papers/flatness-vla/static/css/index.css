@@ -233,13 +233,16 @@ body {
     box-shadow: var(--shadow-xl);
 }
 
-.publication-video iframe {
+.publication-video iframe,
+.publication-video video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius-lg);
+    object-fit: contain;
+    background: #000;
 }
 
 .publication-body img {
