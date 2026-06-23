@@ -87,7 +87,7 @@
               <div class="column has-text-centered">
                 <div class="publication-links">
                   <span class="link-block">
-                    <a href="static/pdfs/paper.pdf" target="_blank"
+                    <a href="https://arxiv.org/abs/2606.23641" target="_blank"
                        class="external-link button is-normal is-rounded is-dark">
                       <span class="icon"><i class="fas fa-file-pdf"></i></span>
                       <span>Paper</span>
@@ -113,9 +113,11 @@
       <div class="container is-max-desktop">
         <div class="hero-body">
           <img src="static/images/fig1_overview.png" alt="Flatness-preserving finetuning improves instruction following in VLAs" loading="lazy"/>
-          <h2 class="subtitle has-text-centered">
-            Finetuning pretrained VLMs with limited data coverage results in sharp, narrow minima from overfitting on sparse data points, while flatness-preserving optimization learns more stable minima. Robot policies finetuned with limited deployment data exhibit instruction blindness, while flatness-preserving optimization with the same data mitigates this.
-          </h2>
+          <div class="content section-prose section-prose--center">
+            <p>
+              Finetuning pretrained VLMs with limited data coverage results in sharp, narrow minima from overfitting on sparse data points, while flatness-preserving optimization learns more stable minima. Robot policies finetuned with limited deployment data exhibit instruction blindness, while flatness-preserving optimization with the same data mitigates this.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -187,12 +189,12 @@
           <h3 class="title is-4 results-subheading">Simulation Results</h3>
           <div class="content has-text-justified section-prose">
             <p>
-              We finetune a pre-trained VLA model using SAM and benchmark language-following ability compared with a variety of baselines finetuned on the exact same (or more) data. We evaluate the method on three counterfactual benchmarks where alternate task instructions are paired with training scenes: LIBERO-PRO Task, LIBERO-CF, and LangGap. In total, the evaluation in simulation consists of 138 new tasks evaluated zero-shot with 50 rollouts each. A number of LIBERO-PRO Task samples are shown below.
+              We finetune a pre-trained VLA model using SAM on the LIBERO training suite and benchmark language-following ability compared with a variety of baselines finetuned on the exact same (or more) data. We evaluate the method on three counterfactual benchmarks where alternate task instructions are paired with training scenes: LIBERO-PRO Task, LIBERO-CF, and LangGap. In total, the evaluation in simulation consists of 138 new tasks evaluated zero-shot with 50 rollouts each. We find that finetuning with SAM significantly improves instruction following accuracy across all three benchmarks over all baselines.
             </p>
           </div>
 
           <div class="results-table-block">
-            <p class="table-caption"><strong>Table 1:</strong> Success rate (%) across LIBERO-PRO and LIBERO-LangGap. † indicates the result is as reported in the original paper.</p>
+            <p class="table-caption"><strong>Table 1:</strong> Success rate (%) across LIBERO-PRO and LangGap. † indicates the result is as reported in the original paper.</p>
             <div class="results-table-wrapper">
               <table class="results-table">
                 <thead>
@@ -306,6 +308,12 @@
             </div>
           </div>
 
+          <div class="content has-text-justified section-prose">
+            <p>
+              A number of rollouts for both the baseline VLA (π₀.₅ checkpoint finetuned on LIBERO) and the VLA finetuned with SAM are shown for LIBERO-PRO Task instructions. The VLA finetuned with SAM succeeds at grounding the correct object to grasp while the default VLA often fails.
+            </p>
+          </div>
+
           <div class="results-grid">
             <div class="grid-item">
               <h3 class="task-title">Pick the butter and place it in the basket</h3>
@@ -386,7 +394,7 @@
           <img class="realworld-figure" src="static/images/fig_realworld.png" alt="Real-world DROID pick-and-place results" loading="lazy"/>
           <div class="content section-prose section-prose--center">
             <p>
-              DROID pick-and-place: π₀.₅ + SAM improves grounding and task success on counterfactual instructions, including with background perturbations.
+              Real-world results on counterfactual instructions at inference time with limited training data. Each bar shows the grounding rate (translucent) and task success rate (solid). π₀.₅ + SAM improves both grounding and task success on counterfactual instructions, including with background perturbations.
             </p>
           </div>
           <div class="realworld-selector" data-tasks="counterfactual">
@@ -416,8 +424,8 @@
           <div class="realworld-selector realworld-selector--spaced" data-tasks="towel">
             <h4 class="realworld-section-label">Unseen background perturbation</h4>
             <div class="realworld-tabs" role="tablist" aria-label="Background perturbation object tasks">
-              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="tylenol">Tylenol</button>
-              <button type="button" class="realworld-tab is-active" role="tab" aria-selected="true" data-task="sunscreen">Sunscreen</button>
+              <button type="button" class="realworld-tab is-active" role="tab" aria-selected="true" data-task="seasoning">Seasoning</button>
+              <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="sunscreen">Sunscreen</button>
               <button type="button" class="realworld-tab" role="tab" aria-selected="false" data-task="salt">Salt Shaker</button>
             </div>
             <div class="realworld-panel grid-item grid-item--realworld">
@@ -498,7 +506,7 @@
   author={Zhang, Haochen and Bisk, Yonatan},
   booktitle={Under Review},
   year={2026},
-  url={https://HaochenZ11.github.io/papers/flatness-vla/}
+  url={https://arxiv.org/abs/2606.23641}
 }</code></pre>
       </div>
     </section>
