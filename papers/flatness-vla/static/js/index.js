@@ -43,9 +43,9 @@ var REAL_WORLD_TASKS = {
         },
         sunscreen: {
             label: 'Sunscreen',
-            title: 'Pick the sunscreen and place it in the basket',
-            baseline: null,
-            sam: null
+            title: 'Pick the sunscreen and place it in the basket (Salt Shaker → Sunscreen)',
+            baseline: 'towel_baseline.gif',
+            sam: 'towel_sam.gif'
         },
         salt: {
             label: 'Salt Shaker',
