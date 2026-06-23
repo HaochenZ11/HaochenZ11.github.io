@@ -35,23 +35,23 @@ var REAL_WORLD_TASKS = {
         }
     },
     towel: {
-        tylenol: {
-            label: 'Tylenol',
-            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol)',
-            baseline: null,
-            sam: null
+        seasoning: {
+            label: 'Seasoning',
+            title: 'Pick the Italian seasoning and place it in the basket (Tylenol → Seasoning)',
+            baseline: 'towel_tylenol_seasoning_baseline.gif',
+            sam: 'towel_tylenol_seasoning_sam.gif'
         },
         sunscreen: {
             label: 'Sunscreen',
-            title: 'Pick the tylenol and place it in the basket (Sunscreen → Tylenol)',
-            baseline: 'towel_baseline.gif',
-            sam: 'towel_sam.gif'
+            title: 'Pick the sunscreen and place it in the basket',
+            baseline: null,
+            sam: null
         },
         salt: {
             label: 'Salt Shaker',
-            title: 'Pick the tylenol and place it in the basket (Salt Shaker → Tylenol)',
-            baseline: null,
-            sam: null
+            title: 'Pick the salt shaker and place it in the basket (Sunscreen → Salt Shaker)',
+            baseline: 'towel_sunscreen_salt_baseline.gif',
+            sam: 'towel_sunscreen_salt_sam.gif'
         }
     }
 };
